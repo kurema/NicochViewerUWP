@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel>
+    <StackPanel Margin="50">
         <TextBlock x:Uid="Setting_Server_Header" Style="{StaticResource HeaderTextBlockStyle}" />
         <TextBlock x:Uid="Setting_Server_Address_Label" />
         <TextBox TextChanged="TextBox_TextChanged" x:Name="TextBoxServerUrl" />

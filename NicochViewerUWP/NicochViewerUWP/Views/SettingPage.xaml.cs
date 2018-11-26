@@ -29,9 +29,10 @@ namespace NicochViewerUWP.Views
             TextBoxServerUrl.Text = Storages.ConfigStorage.ServerUrl ?? "";
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private async void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             Storages.ConfigStorage.ServerUrl = (sender as TextBox)?.Text ?? Storages.ConfigStorage.ServerUrl;
+            await Storages.RemoteCache.UpdateNicochInfoAsync();
         }
     }
 }

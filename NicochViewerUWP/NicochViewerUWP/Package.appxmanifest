@@ -3,7 +3,7 @@
   <Identity Name="1200f856-7594-49e3-a4a8-c770a0301ddd" Publisher="CN=kurema" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="1200f856-7594-49e3-a4a8-c770a0301ddd" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>NicochViewerUWP</DisplayName>
+    <DisplayName>Nicoch Client</DisplayName>
     <PublisherDisplayName>kurema</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -15,8 +15,8 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="NicochViewerUWP.App">
-      <uap:VisualElements DisplayName="NicochViewerUWP" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="NicochViewerUWP" BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
+      <uap:VisualElements DisplayName="Nicoch Client" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Nicoch client." BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>

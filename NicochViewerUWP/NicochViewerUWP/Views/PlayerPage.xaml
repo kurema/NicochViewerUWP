@@ -8,7 +8,9 @@
     mc:Ignorable="d"
     xmlns:dc="using:NicochViewerUWP.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    DataContextChanged="Page_DataContextChanged">
+    DataContextChanged="Page_DataContextChanged"
+    
+    >
 
     <Page.DataContext>
         <dc:PlayerViewModel />

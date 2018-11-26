@@ -43,7 +43,15 @@
                                 <SymbolIcon Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Symbol="Video" />
                                 <Image Source="{Binding ThumbnailUrl}" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 <Rectangle Fill="{StaticResource GradientBrushThumbnail}" />
+                                <!--<Rectangle xmlns:media="using:Windows.UI.Xaml.Media">
+                                    <Rectangle.Fill>
+                                        <media:AcrylicBrush
+                                            BackgroundSource="Backdrop" TintOpacity="0" 
+                                            />
+                                    </Rectangle.Fill>
+                                </Rectangle>-->
                                 <TextBlock VerticalAlignment="Bottom" Text="{Binding Title}" TextAlignment="Center" FontWeight="Bold" Foreground="White"/>
+                                
                                 <VisualStateManager.VisualStateGroups>
                                     <VisualStateGroup x:Name="WindowWidthStates">
                                         <VisualState x:Name="FullWidthState">

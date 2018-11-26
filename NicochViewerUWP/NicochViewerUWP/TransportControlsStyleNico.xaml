@@ -742,6 +742,7 @@
                                             <!-- Custom start-->
                                             <AppBarToggleButton x:Name='ShowCommentButton'
                                                 Style='{StaticResource AppBarToggleButtonStyle}'
+                                                Visibility="Collapsed"
                                                 >
                                                 <AppBarToggleButton.Icon>
                                                     <SymbolIcon x:Name="AppBarButtonSymbol" Symbol="Comment" />

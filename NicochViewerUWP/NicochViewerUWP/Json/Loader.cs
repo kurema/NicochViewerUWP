@@ -37,8 +37,16 @@ namespace NicochViewerUWP.Json
             var jsonSerializer = new DataContractJsonSerializer(typeof(NicochInfo));
             var stream = await LoadHttp(Path);
             if (stream == null) return null;
-            var result = jsonSerializer.ReadObject(stream) as NicochInfo;
-            return result;
+            try
+            {
+                stream.Seek(0, SeekOrigin.Begin);
+                var result = jsonSerializer.ReadObject(stream) as NicochInfo;
+                return result;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
     }
 }

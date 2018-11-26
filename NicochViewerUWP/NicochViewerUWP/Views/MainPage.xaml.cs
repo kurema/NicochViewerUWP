@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 
 using Windows.UI.Popups;
 using Windows.ApplicationModel.Resources;
+using System.Threading.Tasks;
 
 // 空白ページの項目テンプレートについては、https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x411 を参照してください
 
@@ -35,19 +36,9 @@ namespace NicochViewerUWP.Views
             NavigationViewMain.IsBackButtonVisible = NavigationViewBackButtonVisible.Collapsed;
         }
 
-        public async void LoadRemoteLibrary()
+        public void LoadRemoteLibrary()
         {
-            var serverUrl = Storages.ConfigStorage.ServerUrl;
-            var result = await Json.Loader.GetNicochInfo(serverUrl);
-            if (result == null)
-            {
-                var r = ResourceLoader.GetForCurrentView();
-                NavigationViewMain.SelectedItem = NavigationViewMain.SettingsItem;
-                //contentFrame.Navigate(typeof(SettingPage), null);
-                await (new MessageDialog((r.GetString("Message_AccessFailed"))).ShowAsync());
-                return;
-            }
-            contentFrame.Navigate(typeof(ChannelsPage), new ViewModels.ChannelsViewModel(result, serverUrl));
+            ShowLibrary(null);
         }
 
         private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -70,6 +61,36 @@ namespace NicochViewerUWP.Views
         private void contentFrame_Navigated(object sender, NavigationEventArgs e)
         {
             NavigationViewMain.IsBackEnabled = contentFrame.CanGoBack;
+        }
+
+        private async void ShowLibrary(string word)
+        {
+            var serverUrl = Storages.ConfigStorage.ServerUrl;
+            var result = await Storages.RemoteCache.GetNicochInfoAsync();
+            if (result == null)
+            {
+                await ShowAccessFailed();
+                return;
+            }
+            contentFrame.Navigate(typeof(ChannelsPage), new ViewModels.ChannelsViewModel(result, serverUrl, word));
+        }
+
+        private async Task ShowAccessFailed()
+        {
+            var r = ResourceLoader.GetForCurrentView();
+            await (new MessageDialog((r.GetString("Message_AccessFailed"))).ShowAsync());
+            NavigationViewMain.SelectedItem = NavigationViewMain.SettingsItem;
+            //contentFrame.Navigate(typeof(SettingPage), null);
+        }
+
+        private void AutoSuggestBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+            ShowLibrary(sender.Text);
+        }
+
+        private void AutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            //if (string.IsNullOrWhiteSpace(sender.Text)) ShowLibrary(null);
         }
 
         //private void NavigationViewMain_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)

@@ -8,6 +8,9 @@
     mc:Ignorable="d"
     Background="{ThemeResource SystemControlAcrylicWindowBrush}">
     <NavigationView Name="NavigationViewMain" SelectionChanged="NavigationView_SelectionChanged">
+        <NavigationView.AutoSuggestBox>
+            <AutoSuggestBox QueryIcon="Find" QuerySubmitted="AutoSuggestBox_QuerySubmitted" TextChanged="AutoSuggestBox_TextChanged"/>
+        </NavigationView.AutoSuggestBox>
         <NavigationView.MenuItems>
             <NavigationViewItem x:Uid="NavigationItem_Library" Icon="Library" Content="Library" Tag="Library"/>
         </NavigationView.MenuItems>

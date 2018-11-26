@@ -25,7 +25,10 @@ namespace NicochViewerUWP.Views
         public PlayerPage()
         {
             this.InitializeComponent();
+
+            Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
         }
+
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -53,9 +56,11 @@ namespace NicochViewerUWP.Views
             base.OnNavigatedFrom(e);
 
             Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested -= PlayerPage_BackRequested;
-
             Windows.UI.Core.SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = Windows.UI.Core.AppViewBackButtonVisibility.Collapsed;
 
+            Window.Current.CoreWindow.KeyDown -= CoreWindow_KeyDown;
+
+            player.Source = null;
             player.MediaPlayer.Pause();
         }
 
@@ -88,6 +93,52 @@ namespace NicochViewerUWP.Views
             {
                 controlNico.CommandNext = context.CommandNext;
                 controlNico.CommandPrevious = context.CommandPrevious;
+            }
+        }
+
+
+        private void CoreWindow_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
+        {
+            if (args.Handled) return;
+            var session = player.MediaPlayer.PlaybackSession;
+            switch (args.VirtualKey)
+            {
+                case Windows.System.VirtualKey.C:
+                    controlNico.IsCommentEnabled = !controlNico.IsCommentEnabled;
+                    break;
+                case Windows.System.VirtualKey.Right:
+                    if (session.CanSeek)
+                    {
+                        session.Position += TimeSpan.FromSeconds(10);
+                        //session.Position = TimeSpan.FromSeconds(10) + session.Position >= session.NaturalDuration ? session.NaturalDuration : session.Position + TimeSpan.FromSeconds(30);
+                    }
+                    break;
+                case Windows.System.VirtualKey.Left:
+                    if (session.CanSeek)
+                    {
+                        session.Position -= TimeSpan.FromSeconds(10);
+                        //session.Position = TimeSpan.FromSeconds(10) < session.Position ? TimeSpan.Zero : session.Position - TimeSpan.FromSeconds(10);
+                    }
+                    break;
+                case Windows.System.VirtualKey.Space:
+                    switch (session.PlaybackState) {
+                        case Windows.Media.Playback.MediaPlaybackState.Playing:
+                            if (session.CanPause) player.MediaPlayer.Pause();
+                            break;
+                        default:
+                            player.MediaPlayer.Play();
+                            break;
+                    }
+                    break;
+                case Windows.System.VirtualKey.Up:
+                    player.MediaPlayer.Volume = Math.Min(1.0, player.MediaPlayer.Volume + 0.05);
+                    break;
+                case Windows.System.VirtualKey.Down:
+                    player.MediaPlayer.Volume = Math.Max(0.0, player.MediaPlayer.Volume - 0.05);
+                    break;
+                case Windows.System.VirtualKey.M:
+                    player.MediaPlayer.IsMuted = !player.MediaPlayer.IsMuted;
+                    break;
             }
         }
     }
