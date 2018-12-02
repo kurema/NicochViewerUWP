@@ -70,11 +70,19 @@ namespace NicochViewerUWP.Views
         {
             // Find the custom button and create an event handler for its Click event.
             var button = this.ButtonComment;
-            if (IsCommentEnabledCache != null) button.IsChecked = IsCommentEnabledCache ?? false;
-            button.Click += CommentButton_Click;
+            if (IsCommentEnabledCache != null)
+            {
+                button.IsChecked = IsCommentEnabledCache ?? false;
+            }
+            if (button != null)
+            {
+                button.Click += CommentButton_Click;
+                button.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
 
             if (_CommandNext != null) CommandNext = _CommandNext;
             if (_CommandPrevious != null) CommandPrevious = _CommandPrevious;
+
 
             base.OnApplyTemplate();
         }

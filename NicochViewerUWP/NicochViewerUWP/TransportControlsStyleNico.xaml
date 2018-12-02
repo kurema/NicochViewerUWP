@@ -740,14 +740,14 @@
                                                 Width ='0'
                                                 Margin='0,0' />
                                             <!-- Custom start-->
-                                            <AppBarToggleButton x:Name='ShowCommentButton'
+                                            <!--<AppBarToggleButton x:Name='ShowCommentButton'
                                                 Style='{StaticResource AppBarToggleButtonStyle}'
                                                 Visibility="Collapsed"
                                                 >
                                                 <AppBarToggleButton.Icon>
                                                     <SymbolIcon x:Name="AppBarButtonSymbol" Symbol="Comment" />
                                                 </AppBarToggleButton.Icon>
-                                            </AppBarToggleButton>
+                                            </AppBarToggleButton>-->
                                             <!-- Custom end-->                    
                                             <AppBarToggleButton x:Name='RepeatButton'
                                                 Style='{StaticResource AppBarToggleButtonStyle}'

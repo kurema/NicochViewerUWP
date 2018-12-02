@@ -43,7 +43,7 @@ namespace NicochViewerUWP.Json
                 var result = jsonSerializer.ReadObject(stream) as NicochInfo;
                 return result;
             }
-            catch (Exception e)
+            catch
             {
                 return null;
             }

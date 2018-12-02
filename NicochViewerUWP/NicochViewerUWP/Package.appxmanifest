@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="1200f856-7594-49e3-a4a8-c770a0301ddd" Publisher="CN=kurema" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="1200f856-7594-49e3-a4a8-c770a0301ddd" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="6269kurema.NicochClient" Publisher="CN=5E93616C-E6FD-4F3F-9466-8AC306D36152" Version="1.0.0.0" />
+  <mp:PhoneIdentity PhoneProductId="f261b66a-23b1-4d0c-a551-eab24eea9a79" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Nicoch Client</DisplayName>
     <PublisherDisplayName>kurema</PublisherDisplayName>
@@ -20,6 +20,9 @@
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.lockScreenCall" />
+      </Extensions>
     </Application>
   </Applications>
   <Capabilities>

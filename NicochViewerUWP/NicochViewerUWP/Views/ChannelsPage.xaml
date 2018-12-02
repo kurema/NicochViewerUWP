@@ -96,6 +96,13 @@
                     <DataTemplate>
                         <Grid Width="180" Height="180" Background="#888" x:Name="ItemTemplate">
                             <Image Source="{Binding Group.FirstVideo.ThumbnailUrl}" Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                            <!--<Rectangle xmlns:media="using:Windows.UI.Xaml.Media">
+                                <Rectangle.Fill>
+                                    <media:AcrylicBrush
+                                            BackgroundSource="Backdrop" TintOpacity="0" 
+                                            />
+                                </Rectangle.Fill>
+                            </Rectangle>-->
                             <Rectangle Fill="{StaticResource GradientBrushThumbnail}" />
                             <StackPanel VerticalAlignment="Bottom">
                                 <TextBlock TextAlignment="Center" FontWeight="Bold" Foreground="White" Text="{Binding Group.Title}"/>

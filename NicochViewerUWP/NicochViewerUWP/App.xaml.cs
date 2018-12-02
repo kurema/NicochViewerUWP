@@ -30,6 +30,15 @@ namespace NicochViewerUWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            // For XBox One.
+            // https://docs.microsoft.com/en-us/windows/uwp/xbox-apps/tailoring-for-xbox
+            // https://blog.shibayan.jp/entry/20180212/1518419607
+            RequiresPointerMode = ApplicationRequiresPointerMode.WhenRequested;
+
+//#if DEBUG
+//            Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "en-US";
+//#endif
         }
 
         /// <summary>
@@ -71,6 +80,9 @@ namespace NicochViewerUWP
                 // 現在のウィンドウがアクティブであることを確認します
                 Window.Current.Activate();
             }
+
+            // For XBox One.
+            Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().SetDesiredBoundsMode(Windows.UI.ViewManagement.ApplicationViewBoundsMode.UseCoreWindow);
         }
 
         /// <summary>
