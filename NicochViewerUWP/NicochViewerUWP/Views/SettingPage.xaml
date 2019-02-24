@@ -12,5 +12,9 @@
         <TextBlock x:Uid="Setting_Server_Header" Style="{StaticResource HeaderTextBlockStyle}" />
         <TextBlock x:Uid="Setting_Server_Address_Label" />
         <TextBox TextChanged="TextBox_TextChanged" x:Name="TextBoxServerUrl" />
+        <TextBlock x:Uid="Setting_Player_Type_Header" Style="{StaticResource HeaderTextBlockStyle}" />
+        <CheckBox x:Name="CheckBoxPlayerType" Checked="CheckBoxPlayerType_Checked" Unchecked="CheckBoxPlayerType_Checked">
+            <TextBlock x:Uid="Setting_Player_Type_Label" />
+        </CheckBox>
     </StackPanel>
 </Page>

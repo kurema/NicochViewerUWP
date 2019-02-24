@@ -53,7 +53,14 @@ namespace NicochViewerUWP.Views
                     {
                         Storages.History.LastPlayedId = video.Id;
                         ViewModels.ChannelViewModel channel = (this.DataContext as ViewModels.ChannelsViewModel)?.Channels?.FirstOrDefault(a => a.Videos.Contains(video));
-                        f.Navigate(typeof(PlayerPage), new ViewModels.PlayerViewModel(video,channel));
+                        if (Storages.ConfigStorage.PlayerTypeHtml)
+                        {
+                            f.Navigate(typeof(PlayerPageHtml), new ViewModels.PlayerViewModel(video, channel));
+                        }
+                        else
+                        {
+                            f.Navigate(typeof(PlayerPage), new ViewModels.PlayerViewModel(video, channel));
+                        }
                     }
                 }
             }

@@ -119,10 +119,16 @@
   </resheader>
   <data name="Message_AccessFailed" xml:space="preserve">
     <value>アクセスに失敗しました。
-サーバーが起動しているか、URLが正しいかを確認してください。</value>
+サーバーが起動しているか、URLが正しいか、サーバーソフトウェアが最新かを確認してください。</value>
   </data>
   <data name="NavigationItem_Library.Content" xml:space="preserve">
     <value>ライブラリー</value>
+  </data>
+  <data name="Setting_Player_Type_Header.Text" xml:space="preserve">
+    <value>プレイヤー設定</value>
+  </data>
+  <data name="Setting_Player_Type_Label.Text" xml:space="preserve">
+    <value>ウェブ版プレイヤーを利用する(コメントに対応しています)。</value>
   </data>
   <data name="Setting_Server_Address_Label.Text" xml:space="preserve">
     <value>nicochのアドレス.

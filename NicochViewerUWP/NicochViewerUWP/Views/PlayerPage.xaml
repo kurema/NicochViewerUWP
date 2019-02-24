@@ -9,7 +9,6 @@
     xmlns:dc="using:NicochViewerUWP.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     DataContextChanged="Page_DataContextChanged"
-    
     >
 
     <Page.DataContext>

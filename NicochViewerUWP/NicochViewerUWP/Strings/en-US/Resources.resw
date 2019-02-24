@@ -123,6 +123,12 @@
   <data name="NavigationItem_Library.Content" xml:space="preserve">
     <value>Library</value>
   </data>
+  <data name="Setting_Player_Type_Header.Text" xml:space="preserve">
+    <value>Player</value>
+  </data>
+  <data name="Setting_Player_Type_Label.Text" xml:space="preserve">
+    <value>Use HTML5 player (comments enabled).</value>
+  </data>
   <data name="Setting_Server_Address_Label.Text" xml:space="preserve">
     <value>nicoch server URL.
 ex. http://192.168.0.1/nicoch</value>

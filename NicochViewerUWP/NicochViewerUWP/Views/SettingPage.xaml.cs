@@ -27,12 +27,18 @@ namespace NicochViewerUWP.Views
             this.InitializeComponent();
 
             TextBoxServerUrl.Text = Storages.ConfigStorage.ServerUrl ?? "";
+            CheckBoxPlayerType.IsChecked = Storages.ConfigStorage.PlayerTypeHtml;
         }
 
         private async void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             Storages.ConfigStorage.ServerUrl = (sender as TextBox)?.Text ?? Storages.ConfigStorage.ServerUrl;
             await Storages.RemoteCache.UpdateNicochInfoAsync();
+        }
+
+        private void CheckBoxPlayerType_Checked(object sender, RoutedEventArgs e)
+        {
+            Storages.ConfigStorage.PlayerTypeHtml = (sender as CheckBox)?.IsChecked ?? Storages.ConfigStorage.PlayerTypeHtml;
         }
     }
 }

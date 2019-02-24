@@ -86,7 +86,7 @@ namespace NicochViewerUWP.ViewModels
 
         public ChannelViewModel(Json.ChannelRecorded channel, string sourcePath)
         {
-            this._Title = channel.channnel_id;
+            this._Title = channel.channel_id;
             this._Videos = new ObservableCollection<VideoViewModel>(channel?.videos?.Select((a) => new VideoViewModel(a, sourcePath)) ?? new VideoViewModel[0]);
         }
 
@@ -112,6 +112,9 @@ namespace NicochViewerUWP.ViewModels
         private string _MovieUrl;
         public string MovieUrl { get => _MovieUrl; set => SetProperty(ref _MovieUrl, value); }
 
+        private string _PlayerUrl;
+        public string PlayerUrl { get => _PlayerUrl; set => SetProperty(ref _PlayerUrl, value); }
+
         public VideoViewModel()
         {
         }
@@ -122,6 +125,7 @@ namespace NicochViewerUWP.ViewModels
             this._ThumbnailUrl = System.IO.Path.Combine(sourcePath, video.thumbnail_url);
             this._MovieUrl = System.IO.Path.Combine(sourcePath, video.movie_url);
             this._Id = video.id;
+            this._PlayerUrl = System.IO.Path.Combine(sourcePath, video.player_url);
         }
 
     }

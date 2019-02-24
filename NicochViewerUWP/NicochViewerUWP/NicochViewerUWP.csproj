@@ -120,6 +120,9 @@
     <Compile Include="Views\PlayerPage.xaml.cs">
       <DependentUpon>PlayerPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PlayerPageHtml.xaml.cs">
+      <DependentUpon>PlayerPageHtml.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SettingPage.xaml.cs">
       <DependentUpon>SettingPage.xaml</DependentUpon>
     </Compile>
@@ -202,6 +205,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\PlayerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlayerPageHtml.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

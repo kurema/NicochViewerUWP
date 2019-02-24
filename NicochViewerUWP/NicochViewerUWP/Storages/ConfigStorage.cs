@@ -19,6 +19,14 @@ namespace NicochViewerUWP.Storages
             set => ServerUrlItem.SetString(value);
         }
 
+        private static ConfigStorageItem PlayerTypeItem = new ConfigStorageItem("PlayerType");
+        public static bool PlayerTypeHtml
+        {
+            get => PlayerTypeItem.GetString()=="HTML";
+            set => PlayerTypeItem.SetString(value ? "HTML" : "UWP");
+        }
+
+
         public class ConfigStorageItem
         {
             public string Key { get; private set; }

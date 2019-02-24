@@ -14,11 +14,11 @@ namespace NicochViewerUWP.Json
         [DataMember]
         public ChannelRecorded[] recorded_channels { get; set; }
         [DataMember]
-        public ChannnelRecording[] recording_channels { get; set; }
+        public ChannelRecording[] recording_channels { get; set; }
     }
 
     [DataContract]
-    public class ChannnelRecording
+    public class ChannelRecording
     {
         [DataMember]
         public string channel_url { get; set; }
@@ -30,7 +30,7 @@ namespace NicochViewerUWP.Json
     public class ChannelRecorded
     {
         [DataMember]
-        public string channnel_id { get; set; }
+        public string channel_id { get; set; }
         [DataMember]
         public Video[] videos { get; set; }
     }
@@ -48,5 +48,7 @@ namespace NicochViewerUWP.Json
         public string thumbnail_url { get; set; }
         [DataMember]
         public string comment_url { get; set; }
+        [DataMember]
+        public string player_url { get; set; }
     }
 }
