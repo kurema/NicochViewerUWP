@@ -1,4 +1,6 @@
 # NicochViewerUWP
-�j�R�j�R�`�����l���̎����L���b�V���T�[�o�[[nicochcgi](https://github.com/nicocache/nicochcgi)��p�N���C�A���g�ł��B
+ニコニコチャンネルの自動キャッシュサーバー[nicochcgi](https://github.com/kurema/nicochcgi_docker)専用クライアントです。
 
-���̃A�v���𗘗p����ɂ́A��L�T�[�r�X��LAN���̃T�[�o�[�ɃC���X�g�[�����鎖���K�v�ł��B
+このアプリを利用するには、上記サービスをLAN内のサーバーにインストールする事が必要です。
+
+<a href='//www.microsoft.com/store/apps/9PFMPFTFX4W6?cid=storebadge&ocid=badge'><img src='https://developer.microsoft.com/store/badges/images/Japanese_-get-it-from-MS.png' alt='Japanese badge' width='142px' height='52px'/></a>
